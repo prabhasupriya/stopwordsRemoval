@@ -1,0 +1,14 @@
+from collections import Counter
+
+tokens = word_tokenize(text.lower())
+bigrams = list(nltk.bigrams(tokens))
+
+bigram_freq = Counter(bigrams)
+word_freq = Counter(tokens)
+
+def conditional_probability(w1, w2):
+    return bigram_freq[(w1, w2)] / word_freq[w1]
+
+print("P('language' | 'human') =", conditional_probability('human', 'language'))
+
+
