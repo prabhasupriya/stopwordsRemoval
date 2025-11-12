@@ -1,0 +1,10 @@
+#6from nltk.corpus import stopwords
+nltk.download('stopwords')
+
+stop_words = set(stopwords.words('english'))
+
+filtered = [w for w in tokens if w.lower() not in stop_words]
+print("Stopwords removed:", filtered)
+
+freq = Counter(filtered)
+print("Top 50 non-stop words:", freq.most_common(50))
